@@ -1,0 +1,118 @@
+package utils;
+
+import entities.FootballClub;
+import entities.Match;
+import entities.Menu;
+import entities.PremiereLeagueManager;
+import java.io.*;
+import java.util.ArrayList;
+
+public class FileLoadUtil {
+//    protected static PremiereLeagueManager premiereLeagueManager = new PremiereLeagueManager();
+
+    /**
+     * load objects to data structure from file
+     */
+    @SuppressWarnings("Unchecked")
+    public static void loadFromFile() {
+        try{
+            /*
+             * Loading league details from saved file onto program data structure
+             */
+            ArrayList<FootballClub> tempList1;
+            FileInputStream inputStream1 = new FileInputStream("C:\\Users\\Malith\\IdeaProjects\\l5-cw-playframework\\app\\utils\\PremiereLeague.txt");
+            ObjectInputStream objectInputStream1 = new ObjectInputStream(inputStream1);
+
+            tempList1 = (ArrayList<FootballClub>) objectInputStream1.readObject(); // type casting
+
+            // check if data structure is empty and load objects from file if it is
+//            if(Menu.premiereLeagueManager.LEAGUE_CLUBS.isEmpty()){
+                Menu.premiereLeagueManager.LEAGUE_CLUBS.clear();
+
+                Menu.premiereLeagueManager.LEAGUE_CLUBS.addAll(tempList1);
+                System.out.println("\n\uD83D\uDD14 League details loaded from file. " +
+                        "Previously entered League Year was overridden \uD83D\uDD14\n");
+//            } else {
+//                System.out.println("\n⚠ Error : You cannot load previous league details to new league ⚠\n");
+//            }
+            System.out.println(Menu.premiereLeagueManager.LEAGUE_CLUBS);
+            objectInputStream1.close();
+            inputStream1.close();
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("\n⚠ Error : File not found ⚠");
+        }
+        catch(EOFException e){
+            System.out.println("\n⚠ Error : End of stream reached unexpectedly ⚠");
+        }
+        catch(Exception e){
+            System.out.println("\n⚠ Error while loading file ⚠");
+        }
+    }
+
+    /**
+     * load objects to data structure from file
+     * @throws IOException IOException
+     * @throws ClassNotFoundException ClassNotFoundException
+     */
+    @SuppressWarnings("Unchecked")
+    public static void loadMatchesFromFile() throws IOException, ClassNotFoundException {
+        try{
+            /*
+             * Loading played match details from saved file onto program data structure
+             */
+            ArrayList<Match> tempList2;
+            FileInputStream inputStream2 = new FileInputStream("C:\\Users\\Malith\\IdeaProjects\\l5-cw-playframework\\app\\utils\\PlayedMatchDetails.txt");
+            ObjectInputStream objectInputStream2 = new ObjectInputStream(inputStream2);
+
+            tempList2 = (ArrayList<Match>) objectInputStream2.readObject(); // type casting
+
+            // check if data structure is empty and load objects from file if it is
+//            if(Menu.premiereLeagueManager.LEAGUE_MATCHES.isEmpty()){
+//            if(premiereLeagueManager.LEAGUE_MATCHES.isEmpty() && premiereLeagueManager.LEAGUE_CLUBS.isEmpty()){
+
+                Menu.premiereLeagueManager.LEAGUE_MATCHES.clear();
+
+                Menu.premiereLeagueManager.LEAGUE_MATCHES.addAll(tempList2);
+                System.out.println("\n\uD83D\uDD14 Match details loaded from file \uD83D\uDD14\n");
+                Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+//            } else {
+//                System.out.println("\n⚠ Error : You cannot load previous match details to new league ⚠\n");
+//            }
+            System.out.println(Menu.premiereLeagueManager.LEAGUE_MATCHES);
+            objectInputStream2.close();
+            inputStream2.close();
+
+//            /*
+//             * Loading league details from saved file onto program data structure
+//             */
+//            ArrayList<FootballClub> tempList1;
+//            FileInputStream inputStream1 = new FileInputStream("C:\\Users\\Malith\\IdeaProjects\\l5-cw-playframework\\app\\entities\\PremiereLeague.txt");
+//            ObjectInputStream objectInputStream1 = new ObjectInputStream(inputStream1);
+//
+//            tempList1 = (ArrayList<FootballClub>) objectInputStream1.readObject(); // type casting
+//
+//            // check if data structure is empty and load objects from file if it is
+//            if(LEAGUE_CLUBS.isEmpty()){
+//                LEAGUE_CLUBS.addAll(tempList1);
+//                System.out.println("\n\uD83D\uDD14 League details loaded from file. " +
+//                        "Previously entered League Year was overridden \uD83D\uDD14\n");
+//            } else {
+//                System.out.println("\n⚠ Error : You cannot load previous league details to new league ⚠\n");
+//            }
+////            System.out.println(LEAGUE_CLUBS);
+//            objectInputStream1.close();
+//            inputStream1.close();
+        }
+        catch(FileNotFoundException e) {
+            System.out.println("\n⚠ Error : File not found ⚠");
+        }
+        catch(EOFException e){
+            System.out.println("\n⚠ Error : End of stream reached unexpectedly ⚠");
+        }
+        catch(Exception e){
+            System.out.println("\n⚠ Error while loading file ⚠");
+        }
+    }
+}
+

@@ -1,0 +1,153 @@
+package controllers;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import entities.FootballClub;
+import entities.Match;
+import entities.Menu;
+import entities.PremiereLeagueManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import play.mvc.*;
+import utils.ApplicationUtil;
+import utils.FileLoadUtil;
+import utils.FileWriteUtil;
+import java.io.IOException;
+import java.util.ArrayList;
+
+/**
+ * This controller contains an action to handle HTTP requests
+ * to the application's home page.
+ */
+public class HomeController extends Controller {
+//    protected static PremiereLeagueManager premiereLeagueManager = new PremiereLeagueManager();
+    protected static final Logger logger = LoggerFactory.getLogger("controller");
+
+    /**
+     * @return arraylist of league clubs as json object
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
+    public Result listClubs() throws IOException, ClassNotFoundException {
+        FileLoadUtil.loadFromFile();
+
+        ArrayList<FootballClub> result = Menu.premiereLeagueManager.LEAGUE_CLUBS;
+        result.sort(FootballClub::compareTo);
+        logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(ApplicationUtil.createResponse(jsonData, true));
+    }
+
+    /**
+     * @return arraylist of league matches as json object
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
+    public Result listMatches() throws IOException, ClassNotFoundException {
+        FileLoadUtil.loadMatchesFromFile();
+
+        Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+
+        ArrayList<Match> result = Menu.premiereLeagueManager.LEAGUE_MATCHES;
+        logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(ApplicationUtil.createResponse(jsonData, true));
+    }
+
+    /**
+     * @return arraylist of league matches as json object
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
+    public Result sortMatchList() throws IOException, ClassNotFoundException {
+        FileLoadUtil.loadMatchesFromFile();
+
+        Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+
+        ArrayList<Match> result = Menu.premiereLeagueManager.LEAGUE_MATCHES;
+        Match.sortMatches(result);
+        logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(ApplicationUtil.createResponse(jsonData, true));
+    }
+
+    /**
+     * @return random match
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
+    public Result produceRandomMatch() throws IOException, ClassNotFoundException {
+        FileLoadUtil.loadFromFile();
+
+        Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+
+        Match result = Menu.premiereLeagueManager.generateRandomMatch();
+//        Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+
+//        FileWriteUtil.saveMatchesToFile();
+//        FileWriteUtil.saveToFile();
+
+        logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(ApplicationUtil.createResponse(jsonData, true));
+
+//        FileLoadUtil.loadMatchesFromFile();
+
+//        try{
+//            Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+        //        Menu.premiereLeagueManager.setLeagueYear(Menu.plYear);
+//
+////        if(Menu.premiereLeagueManager.LEAGUE_MATCHES.size() >= 1){
+////            Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+////        } else {
+////            Menu.premiereLeagueManager.setLeagueYear(Menu.premiereLeagueManager.getLeagueYear());
+////        }
+//
+//            Match result = Menu.premiereLeagueManager.generateRandomMatch();
+//
+//            FileWriteUtil.saveMatchesToFile();
+//            FileWriteUtil.saveToFile();
+//
+////            logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+////            ObjectMapper mapper = new ObjectMapper();
+////            JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+////            return ok(ApplicationUtil.createResponse(jsonData, true));
+//        }catch (Exception e){
+//            System.out.println("");
+//        }
+    }
+
+    /**
+     * @return arraylist of league clubs as json object
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
+    public Result goalsSortedClubs() throws IOException, ClassNotFoundException {
+        FileLoadUtil.loadFromFile();
+        ArrayList<FootballClub> result = Menu.premiereLeagueManager.LEAGUE_CLUBS;
+        FootballClub.compareGoals(result);
+        logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(ApplicationUtil.createResponse(jsonData, true));
+    }
+
+    /**
+     * @return arraylist of league clubs as json object
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
+     */
+    public Result winsSortedClubs() throws IOException, ClassNotFoundException {
+        FileLoadUtil.loadFromFile();
+        ArrayList<FootballClub> result = Menu.premiereLeagueManager.LEAGUE_CLUBS;
+        FootballClub.compareWins(result);
+        logger.debug("In LeagueManagerController.listClubs(), result is: {}", result.toString());
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(ApplicationUtil.createResponse(jsonData, true));
+    }
+}
