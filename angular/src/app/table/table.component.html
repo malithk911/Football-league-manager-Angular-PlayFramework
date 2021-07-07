@@ -1,0 +1,37 @@
+<div class="tableContain">
+  <div class="table-itself">
+    <h1 class="heading">Premiere League Table</h1>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Club Name</th>
+        <th>Location</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Defeats</th>
+        <th>GS</th>
+        <th>GC</th>
+        <th>Points</th>
+        <th>Matches</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let table of myTable" >
+        <td><span>{{table.clubName}}</span></td>
+        <td><span>{{table.clubCountry}}</span></td>
+        <td><span>{{table.numOfWins}}</span></td>
+        <td><span>{{table.numOfDraws}}</span></td>
+        <td><span>{{table.numOfDefeats}}</span></td>
+        <td><span>{{table.numOfGoalsScored}}</span></td>
+        <td><span>{{table.numOfGoalsConceded}}</span></td>
+        <td><span>{{table.numOfPoints}}</span></td>
+        <td><span>{{table.numOfMatches}}</span></td>
+      </tr>
+    </table>
+
+    <button (click)="getSortedByPoints()" mat-button class="sort-btn" id="sortByPoints">Sort by Points</button>
+    <button (click)="getSortedByWins()" mat-button class="sort-btn">Sort by Wins</button>
+    <button (click)="getSortedByGoals()" mat-button class="sort-btn" >Sort by Goals</button>
+  </div>
+</div>
+

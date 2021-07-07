@@ -1,0 +1,119 @@
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {FootballClub} from "../Interfaces/FootballClub_interface";
+import {Observable} from "rxjs";
+import {ResponseInterface} from "../Interfaces/Response_interface";
+
+@Component({
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
+})
+
+export class TableComponent implements OnInit {
+  leagueTableData: ResponseInterface;
+  myTable: FootballClub[];
+
+  constructor(private httpClient: HttpClient) {
+
+    this.getUsers().subscribe(list => {
+      this.leagueTableData = list;
+      this.myTable = this.leagueTableData.response;
+      console.log("LIST: " + list);
+      console.log(list);
+      console.log("TABLE: " + this.myTable);
+      console.log(this.myTable);
+    });
+
+    // this.sortByGoals().subscribe(goalsSorted => {
+    //   this.leagueTableData = goalsSorted;
+    //   this.myTable = this.leagueTableData.response;
+    //   console.log("LIST: " + goalsSorted);
+    //   console.log(goalsSorted);
+    //   console.log("TABLE: " + this.myTable);
+    //   console.log(this.myTable);
+    // })
+  }
+
+  ngOnInit(): void {
+  }
+
+  getSortedByGoals(){
+    this.sortByGoals().subscribe(goalsSorted => {
+      this.leagueTableData = goalsSorted;
+      this.myTable = this.leagueTableData.response;
+      console.log("LIST: " + goalsSorted);
+      console.log(goalsSorted);
+      console.log("TABLE: " + this.myTable);
+      console.log(this.myTable);
+    })
+  }
+
+  getSortedByPoints(){
+    this.getUsers().subscribe(winsSorted => {
+      this.leagueTableData = winsSorted;
+      this.myTable = this.leagueTableData.response;
+      console.log("LIST: " + winsSorted);
+      console.log(winsSorted);
+      console.log("TABLE: " + this.myTable);
+      console.log(this.myTable);
+    });
+  }
+
+  getSortedByWins(){
+    this.sortByWins().subscribe(winsSorted => {
+      this.leagueTableData = winsSorted;
+      this.myTable = this.leagueTableData.response;
+      console.log("LIST: " + winsSorted);
+      console.log(winsSorted);
+      console.log("TABLE: " + this.myTable);
+      console.log(this.myTable);
+    });
+  }
+
+  getUsers(): Observable<ResponseInterface> {
+    return this.httpClient.get<ResponseInterface>('/table');
+  }
+
+  sortByGoals(): Observable<ResponseInterface> {
+    return this.httpClient.get<ResponseInterface>('/sortByGoals');
+  }
+
+  sortByWins(): Observable<ResponseInterface> {
+    return this.httpClient.get<ResponseInterface>('/sortByWins');
+  }
+}
+
+// export class something implements OnInit{
+//   leagueTableData: ResponseInterface;
+//   myTable: FootballClub[];
+//
+//   constructor(private httpClient: HttpClient) {
+//
+//     // this.getUsers().subscribe(list => {
+//     //   this.leagueTableData = list;
+//     //   this.myTable = this.leagueTableData.response;
+//     //   console.log("LIST: " + list);
+//     //   console.log(list);
+//     //   console.log("TABLE: " + this.myTable);
+//     //   console.log(this.myTable);
+//     // });
+//
+//     this.sortByGoals().subscribe(goalsSorted =>{
+//       this.leagueTableData = goalsSorted;
+//       this.myTable = this.leagueTableData.response;
+//       console.log("LIST: " + goalsSorted);
+//       console.log(goalsSorted);
+//       console.log("TABLE: " + this.myTable);
+//       console.log(this.myTable);
+//     })
+//   }
+//
+//   sortByGoals(): Observable<ResponseInterface> {
+//     return this.httpClient.get<ResponseInterface>('http://localhost:9000/sortByGoals');
+//   }
+//
+//   ngOnInit(): void {
+//   }
+// }
+

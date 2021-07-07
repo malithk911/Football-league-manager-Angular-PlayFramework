@@ -1,0 +1,101 @@
+/*.container{*/
+/*  background-image : url("footballwallpaper.jpg") ;*/
+/*}*/
+.bitch{
+  background-image: url("src/Black-wallpaper-with-a-football.jpg");
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/*body, html{*/
+/*  -webkit-background-size: cover;*/
+/*  -moz-background-size: cover;*/
+/*  -o-background-size: cover;*/
+/*  background-size: cover;*/
+/*}*/
+.heading{
+  color: white;
+  margin-top: 30px;
+  border-style: solid;
+  background-color: #29648a;
+  border-radius: 35px;
+  border-color: #418fc3;
+  width: 500px;
+  padding: 10px;
+  text-align: center;
+  margin-left: 350px;
+  margin-bottom: 50px;
+}
+
+.heading:hover{
+  color: #2bd5f1;
+  background-color: #000000;
+}
+
+.table-itself{
+  /*width:80%;*/
+  /*!*margin-left:15%;*!*/
+  /*!*margin-right:15%;*!*/
+  /*margin-bottom: 20%;*/
+  /*margin-top: 10%;*/
+  /*background-color: #93baba;*/
+
+  margin: 0 auto auto;
+  padding-top: 100px;
+  width: 1200px;
+  height: auto;
+  position: center;
+  /*border-style: solid;*/
+  /*border-radius: 35px;*/
+  /*border-width: 5px;*/
+  /*border-color: #418fc3;*/
+}
+
+.table{
+  /*background-color: #29648a;*/
+  border-style: solid;
+  border-collapse: collapse;
+  border-radius: 30px;
+  border-color: #29648a;
+  font-size: 20px;
+  color: white;
+}
+
+.table:hover{
+  border-color: #669ce9;
+  color: #c6ebf8;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#sortByPoints{
+  margin-left: 360px;
+}
+
+.sort-btn{
+  color: white;
+  background-image: linear-gradient(#44799b 0%, #123c69 100%);
+  font-weight: bold;
+  /*padding: 10px;*/
+  font-size: 15px;
+  border-style: solid;
+  border-color: #000000;
+  margin-left: 5px;
+  margin-top: 20px;
+  min-height: 10px;
+  /*border-style: solid;*/
+  border-radius: 25px;
+  /*background-radius: 25;*/
+  min-width: 150px;
+  border-collapse: collapse;
+  outline: 0;
+}
+
+.sort-btn:hover{
+  color: aqua;
+  border-color: #2bd5f1;
+  background-image: linear-gradient(#000000 0%, #000000 100%);
+}
+

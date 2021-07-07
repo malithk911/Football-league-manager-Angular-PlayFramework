@@ -1,0 +1,198 @@
+/*.date{*/
+/*  margin-left: 300px;*/
+/*}*/
+
+/*mat-grid-tile{*/
+/*  tecolor: black;*/
+/*  background-color: aqua;*/
+/*}*/
+
+.fuck{
+  background-image: url("src/Black-wallpaper-with-a-football.jpg");
+  background-size: cover;
+  /*margin: 0;*/
+  /*position: absolute;*/
+  /*-ms-transform: translate(-50%, -50%);*/
+  /*transform: translate(-50%, -50%);*/
+  /*position: relative;*/
+  width: 100%;
+  height: 100%;
+  /*background-repeat: repeat-y;*/
+  overflow: auto;
+  /*background-repeat: inherit;*/
+}
+
+/*body, html{*/
+/*  -webkit-background-size: cover;*/
+/*  -moz-background-size: cover;*/
+/*  -o-background-size: cover;*/
+/*  background-size: cover;*/
+/*}*/
+
+/*mat-list-item{*/
+/*  background-color: #93baba;*/
+/*  !*border-width: 10px;*!*/
+/*  !*border-color: aqua;*!*/
+/*}*/
+.match-heading{
+  color: white;
+  /*margin-top: 100px;*/
+  border-style: solid;
+  background-color: #29648a;;
+  border-radius: 35px;
+  border-color: #418fc3;
+  width: 700px;
+  padding: 10px;
+  text-align: center;
+  margin-left: 600px;
+  margin-top: 50px;
+}
+
+/*mat-form-field{*/
+/*  !*background-color: transparent;*!*/
+/*  !*border-style: solid;*!*/
+/*  !*border-color: #2bd5f1;*!*/
+/*  !*border-radius: 10px;*!*/
+/*  !*min-height: 30px;*!*/
+/*  text-align: center;*/
+/*  margin-left: 100px;*/
+/*  !*padding-bottom: 20px;*!*/
+/*}*/
+
+form{
+  /*background-color: transparent;*/
+  /*border-style: solid;*/
+  /*border-color: #2bd5f1;*/
+  /*border-radius: 10px;*/
+  /*min-height: 30px;*/
+  text-align: center;
+  margin-top: 80px;
+  /*color: white;*/
+  /*margin-left: 300px;*/
+  /*margin-bottom: 300px;*/
+  /*padding-bottom: 20px;*/
+}
+
+#dateTextField{
+  /*outline: white;*/
+  color: white;
+}
+
+/*!* Border *!*/
+/*.mat-form-field-appearance-outline .mat-form-field-outline {*/
+/*  color: white;*/
+/*}*/
+
+/*!* Font color *!*/
+/*input.mat-input-element {*/
+/*  color: white;*/
+/*}*/
+
+mat-form-field{
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  text-align: center;
+  /*height: 75px;*/
+  /*height: 65px;*/
+
+}
+
+
+
+/*mat-hint{*/
+/*  margin-left: 55px;*/
+/*  margin-top: 10px;*/
+/*  margin-bottom: 10px;*/
+/*}*/
+
+.match-heading:hover{
+  color: #2bd5f1;
+  background-color: #000000;
+}
+
+.matchItem{
+  margin: 10px auto auto;
+  padding: 30px;
+  width: 900px;
+  position: center;
+  border-style: solid;
+  border-radius: 35px;
+  border-width: 5px;
+  border-color: #418fc3;
+  /*background-image: linear-gradient(#123c69 0%, #29648a 70%);*/
+  background-color: transparent;
+  color: #ffff;
+}
+
+.matchItem:hover{
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #2bd5f1;
+  border-color: #2bd5f1;
+  font-size: 20px;
+}
+
+.matchAttribute{
+  margin-right: 100px;
+}
+
+.shit{
+  margin-right: 30px;
+}
+
+#sort-matches{
+  margin-left: 790px;
+  min-height: 15px;
+  /*padding: 2px;*/
+}
+
+/*#fix-match{*/
+/*  margin-left: 250px;*/
+/*  min-height: 10px;*/
+/*}*/
+
+.matches-btn{
+  color: white;
+  /*margin-top:15px;*/
+  margin-left: 10px;
+  /*margin-right: 300px;*/
+  background-image: linear-gradient(#44799b 0%, #123c69 100%);
+  font-weight: bold;
+  /*padding: 10px;*/
+  font-size: 13px;
+  border-style: solid;
+  border-color: #000000;
+  /*border-radius: 25px;*/
+  /*background-radius: 25;*/
+  min-width: 150px;
+  /*border-collapse: collapse;*/
+  /*margin-left: 700px;*/
+  border-radius: 25px;
+  /*margin-bottom: 25px;*/
+  outline: 0;
+}
+
+.matches-btn:hover{
+  color: aqua;
+  background-image: linear-gradient(#000000 0%, #000000 100%);
+  border-color: #2bd5f1;
+}
+
+/*#screw{*/
+/*  padding-top: 100px;*/
+/*}*/
+/*.match{*/
+/*  !*border-bottom-width: 10px;*!*/
+/*  !*border-color: aqua;*!*/
+/*  !*border-bottom-color: #93baba;*!*/
+/*  padding-bottom: 100px;*/
+/*  padding-top: 20px;*/
+/*  margin-left: 15%;*/
+/*  padding-right: 250px;*/
+/*}*/
+
+/*.matchAttribute{*/
+/*  margin-left: 300px;*/
+/*}*/
+
+/*#hr{*/
+/*  background-color: aliceblue;*/
+/*}*/

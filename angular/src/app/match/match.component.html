@@ -1,0 +1,51 @@
+<div class="matchContain">
+  <br>
+  <h1 class="match-heading">Premiere League Matches</h1>
+
+  <form #matchesForm="ngForm" (ngSubmit)="onSubmit(matchesForm.value)">
+    <mat-form-field appearance="fill" color="warn">
+      <mat-label for="date" id="dateTextField">DD.MM.YYYY</mat-label>
+      <input matInput type="text" name="matchDate" id="dateInput" ngModel>
+    </mat-form-field>
+    <button mat-button type="submit" class="matches-btn">Search</button>
+  </form>
+
+  <button (click)="getLeagueMatchesSorted()" mat-button id="sort-matches" class="matches-btn">Sort Matches</button>
+  <button (click)="displayRandomMatch()" mat-button id="fix-match" class="matches-btn">Fix Match</button>
+
+  <mat-list>
+    <div *ngIf="searchListExist; else searchListNotExist">
+      <div class="matchItem" *ngFor="let item of searchList">
+        <span>Date : </span>
+        <span class="date">{{item.date.day}}.</span>
+        <span class="date">{{item.date.month}}.</span>
+        <span class="date">{{item.date.year}}</span>
+        <hr>
+        <span class="matchAttribute">{{item.homeClubName}}</span>
+        <span class="shit">{{item.homeClubScore}}</span>
+        <span class="shit">:</span>
+        <span class="matchAttribute">{{item.visitingClubScore}}</span>
+        <span class="matchAttribute">{{item.visitingClubName}}</span>
+        <hr>
+      </div>
+    </div>
+
+    <ng-template #searchListNotExist>
+      <div class="matchItem" *ngFor="let match of matchList">
+        <span>Date : </span>
+        <span class="date">{{match.date.day}}.</span>
+        <span class="date">{{match.date.month}}.</span>
+        <span class="date">{{match.date.year}}</span>
+        <hr>
+        <span class="matchAttribute">{{match.homeClubName}}</span>
+        <span class="shit">{{match.homeClubScore}}</span>
+        <span class="shit">:</span>
+        <span class="matchAttribute">{{match.visitingClubScore}}</span>
+        <span class="matchAttribute">{{match.visitingClubName}}</span>
+        <hr>
+      </div>
+    </ng-template>
+
+  </mat-list>
+</div>
+

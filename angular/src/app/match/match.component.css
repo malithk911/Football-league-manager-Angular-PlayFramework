@@ -1,0 +1,90 @@
+.matchContain{
+  background-image: url("src/Black-wallpaper-with-a-football.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.match-heading{
+  color: white;
+  border-style: solid;
+  background-color: #29648a;;
+  border-radius: 35px;
+  border-color: #418fc3;
+  width: 700px;
+  padding: 10px;
+  text-align: center;
+  margin-left: 600px;
+  margin-top: 50px;
+}
+
+form{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#dateTextField{
+  color: white;
+}
+
+mat-form-field{
+  text-align: center;
+}
+
+.match-heading:hover{
+  color: #2bd5f1;
+  background-color: #000000;
+}
+
+.matchItem{
+  margin: 10px auto auto;
+  padding: 30px;
+  width: 900px;
+  position: center;
+  border-style: solid;
+  border-radius: 35px;
+  border-width: 5px;
+  border-color: #418fc3;
+  background-color: transparent;
+  color: #ffff;
+}
+
+.matchItem:hover{
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #2bd5f1;
+  border-color: #2bd5f1;
+  font-size: 20px;
+}
+
+.matchAttribute{
+  margin-right: 100px;
+}
+
+.shit{
+  margin-right: 30px;
+}
+
+#sort-matches{
+  margin-left: 790px;
+  min-height: 15px;
+}
+
+.matches-btn{
+  color: white;
+  margin-left: 10px;
+  background-image: linear-gradient(#44799b 0%, #123c69 100%);
+  font-weight: bold;
+  font-size: 13px;
+  border-style: solid;
+  border-color: #000000;
+  min-width: 150px;
+  border-radius: 25px;
+  outline: 0;
+}
+
+.matches-btn:hover{
+  color: aqua;
+  background-image: linear-gradient(#000000 0%, #000000 100%);
+  border-color: #2bd5f1;
+}

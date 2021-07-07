@@ -1,0 +1,23 @@
+#menu{
+  padding-left: 670px;
+}
+
+.navbar{
+  background-color: #09335a;
+}
+
+.navbar-brand{
+  padding-top: 30px;
+  padding-right: 100px;
+  text-align: center;
+  height: 80px;
+}
+
+.navbar-brand:hover{
+  color: aqua;
+}
+
+.navbar:hover{
+  background-color: black;
+  border-bottom-width: 1px;
+}
